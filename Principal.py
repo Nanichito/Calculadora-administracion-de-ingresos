@@ -34,7 +34,7 @@ area_principal = Frame(aplicacion, bg=f"#{cafe_claro}", width=ancho - 200, heigh
 area_principal.pack(side="right", fill="both", expand=True)
 
 
-# Crea paneles de título y descripción para usar en cada sección
+#Paneles comunes para todas las secciones
 def paneles_comunes(titulo, descripcion):
     # Panel superior
     panel_superior = Frame(area_principal, relief=FLAT, bg=f"#{cafe_claro}")
@@ -59,11 +59,26 @@ def paneles_comunes(titulo, descripcion):
     return panel_superior, panel_descripcion
 
 
+
+
+
+# Elimina todos los widgets de la pantalla
 def limpiar_area_principal():
     for widget in area_principal.winfo_children():
         widget.destroy()
 
 
+# Funciones para cada sección
+# Sección inicio
+def mostrar_inicio():
+    limpiar_area_principal()
+    titulo_inicio = "Inicio"
+    descripcion_inicio = ('Sigue las instrucciones de "Ingresos" y "Gastos" para obtener '
+                          'una recomendación financiera en "Resultados')
+    paneles_comunes(titulo_inicio, descripcion_inicio)
+
+
+# Sección ingresos
 def mostrar_ingresos():
     limpiar_area_principal()
     titulo_ingresos = "Ingresos mensuales"
@@ -73,7 +88,7 @@ def mostrar_ingresos():
     paneles_comunes(titulo_ingresos, descripcion_ingresos)
 
 
-
+# Sección gastos
 def mostrar_gastos():
     limpiar_area_principal()
     titulo_gastos = "Gastos mensuales"
@@ -83,6 +98,7 @@ def mostrar_gastos():
     paneles_comunes(titulo_gastos, descripcion_gastos)
 
 
+# Sección resultados
 def mostrar_resultados():
     limpiar_area_principal()
     titulo_resultados = "Resultados"
@@ -90,12 +106,6 @@ def mostrar_resultados():
     paneles_comunes(titulo_resultados, descripcion_resultados)
 
 
-def mostrar_inicio():
-    limpiar_area_principal()
-    titulo_inicio = "Inicio"
-    descripcion_inicio = ('Sigue las instrucciones de "Ingresos" y "Gastos" para obtener '
-                          'una recomendación financiera en "Resultados')
-    paneles_comunes(titulo_inicio, descripcion_inicio)
 
 
 # Botones del menú lateral
@@ -121,7 +131,7 @@ boton_resultados.pack(pady=10, padx=10, fill="x")
 
 
 
-# Llama a la función de inicio al inicio
+# Comienza con la sección inicio
 mostrar_inicio()
 
 # Lanza la aplicación
