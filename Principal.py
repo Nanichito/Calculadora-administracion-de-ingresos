@@ -1,5 +1,5 @@
 from tkinter import *
-#comentario de prueba2
+#comentario de prueba3
 
 # Iniciar tkinter
 aplicacion = Tk()
