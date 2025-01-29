@@ -92,10 +92,9 @@ def mostrar_resultados():
 
 def mostrar_inicio():
     limpiar_area_principal()
-    titulo_inicio = "Ingresos mensuales"
-    descripcion_inicio = ('Seleccione las casillas de los ingresos que usted reciba mensualmente e ingrese los '
-                            'valores correspondientes. Puede añadir otros campos con el botón "Agregar", asegúrese '
-                            'de clickear la casilla, escribir un nombre y el valor.')
+    titulo_inicio = "Inicio"
+    descripcion_inicio = ('Sigue las instrucciones de "Ingresos" y "Gastos" para obtener '
+                          'una recomendación financiera en "Resultados')
     paneles_comunes(titulo_inicio, descripcion_inicio)
 
 
