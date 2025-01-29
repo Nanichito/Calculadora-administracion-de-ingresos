@@ -1,4 +1,5 @@
 from tkinter import *
+
 # Iniciar tkinter
 aplicacion = Tk()
 
