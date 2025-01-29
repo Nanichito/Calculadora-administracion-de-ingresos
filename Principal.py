@@ -55,6 +55,15 @@ def paneles_comunes(titulo, descripcion):
                                  wraplength=ancho - 120, justify="left")
     etiqueta_descripcion.pack(pady=0)
 
+    #Panel izquierdo
+    panel_izquierdo = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_izquierdo.pack(side=LEFT)
+
+    #Panel derecho
+    panel_derecho = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_derecho.pack(side=RIGHT)derecho
+
+
     # Retorna los paneles comunes
     return panel_superior, panel_descripcion
 
