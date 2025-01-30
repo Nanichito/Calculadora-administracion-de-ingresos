@@ -33,6 +33,10 @@ menu_lateral.pack(side="left", fill="y")
 area_principal = Frame(aplicacion, bg=f"#{cafe_claro}", width=ancho - 200, height=alto)
 area_principal.pack(side="right", fill="both", expand=True)
 
+# Lista opciones ingresos
+lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3"]
+
+
 
 #Paneles comunes para todas las secciones
 def paneles_comunes(titulo, descripcion):
@@ -81,33 +85,6 @@ def mostrar_inicio():
     paneles_comunes(titulo_inicio, descripcion_inicio)
 
 
-    #Panel izquierdo
-    panel_izquierdo = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
-    panel_izquierdo.pack(side=LEFT)
-
-    #Panel derecha
-    panel_derecho = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
-    panel_derecho.pack(side=RIGHT)
-
-
-    # Panel columna 1
-    panel_columna1 = LabelFrame(panel_izquierdo, text="Columna 1", font=("Dosis", 19, "bold"),bd=1, relief=FLAT,
-                                fg=f"#{cafe_claro}")
-    panel_columna1.pack(side=LEFT)
-
-    # Panel columna 2
-    panel_columna2 = LabelFrame(panel_izquierdo, text="Columna 2", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
-                                fg=f"#{cafe_claro}")
-    panel_columna2.pack(side=LEFT)
-
-    # Panel columna 3
-    panel_columna3 = LabelFrame(panel_izquierdo, text="Columna 3", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
-                                fg=f"#{cafe_claro}")
-    panel_columna3.pack(side=LEFT)
-
-
-
-
 
 
 
@@ -120,6 +97,49 @@ def mostrar_ingresos():
                             'valores correspondientes. Puede añadir otros campos con el botón "Agregar", asegúrese '
                             'de clickear la casilla, escribir un nombre y el valor.')
     paneles_comunes(titulo_ingresos, descripcion_ingresos)
+
+
+
+
+    #Panel izquierdo
+    panel_izquierdo = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{blanco}")
+    panel_izquierdo.pack(side=LEFT)
+
+    #Panel derecha
+    panel_derecho = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_derecho.pack(side=RIGHT)
+
+
+    # Panel columna 1
+    panel_columna1 = LabelFrame(panel_izquierdo, text="Columna 1", font=("Dosis", 19, "bold"),bd=1, relief=FLAT,
+                                fg=f"#{cafe_oscuro}", bg= f"#{blanco}")
+    panel_columna1.pack(side=LEFT)
+
+    # Panel columna 2
+    panel_columna2 = LabelFrame(panel_izquierdo, text="Columna 2", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
+                                fg=f"#{cafe_oscuro}", bg= f"#{blanco}")
+    panel_columna2.pack(side=LEFT)
+
+    # Panel columna 3
+    panel_columna3 = LabelFrame(panel_izquierdo, text="Columna 3", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
+                                fg=f"#{cafe_oscuro}", bg= f"#{blanco}")
+    panel_columna3.pack(side=LEFT)
+
+    # Generar items ingresos
+    variables_ingresos = []
+
+    # CheckButtons
+    contador = 0
+    for tipo_ingreso in lista_ingresos:
+        variables_ingresos.append("")
+        variables_ingresos[contador] = IntVar
+        tipo_ingreso = Checkbutton(panel_columna1, text=tipo_ingreso.title(), font=("Dosis", 19, "italic"),
+                                   fg=f"#{cafe_medio}", onvalue=1, offvalue=0, bg=f"#{blanco}",
+                                   activebackground=f"#{cafe_claro}", variable=variables_ingresos[contador])
+
+        tipo_ingreso.grid(row=contador, column=0, sticky=W)
+        contador += 1
+
 
 
 # Sección gastos
@@ -158,6 +178,10 @@ boton_gastos.pack(pady=10, padx=10, fill="x")
 boton_resultados = Button(menu_lateral, text="Resultados", bg=f"#{cafe_claro}", fg="black", font=("Arial", 12),
                           relief="raised", command=mostrar_resultados)
 boton_resultados.pack(pady=10, padx=10, fill="x")
+
+
+
+
 
 
 
