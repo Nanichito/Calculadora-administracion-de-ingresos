@@ -82,9 +82,23 @@ def paneles_comunes(titulo, descripcion):
                                  justify="left")
     etiqueta_descripcion.pack(pady=0)
 
+    # Panel izquierdo
+    panel_izquierdo = Frame(area_principal,
+                            bd=1,
+                            relief=FLAT,
+                            bg=f"#{blanco}")
+    panel_izquierdo.pack(side=LEFT)
+
+    # Panel derecha
+    panel_derecho = Frame(area_principal,
+                          bd=1,
+                          relief=FLAT,
+                          bg=f"#{cafe_claro}")
+    panel_derecho.pack(side=RIGHT)
+
 
     # Retorna los paneles comunes
-    return panel_superior, panel_descripcion
+    return panel_superior, panel_descripcion, panel_izquierdo, panel_derecho
 
 
 
@@ -117,15 +131,7 @@ def mostrar_ingresos():
     descripcion_ingresos = ('Seleccione las casillas de los ingresos que usted reciba mensualmente e ingrese los '
                             'valores correspondientes. Puede añadir otros campos con el botón "Agregar", asegúrese '
                             'de clickear la casilla, escribir un nombre y el valor.')
-    paneles_comunes(titulo_ingresos, descripcion_ingresos)
-
-
-    #Panel izquierdo
-    panel_izquierdo = Frame(area_principal,
-                            bd=1,
-                            relief=FLAT,
-                            bg=f"#{blanco}")
-    panel_izquierdo.pack(side=LEFT)
+    panel_superior, panel_descripcion, panel_izquierdo, panel_derecho = paneles_comunes(titulo_ingresos, descripcion_ingresos)
 
 
     # Panel ingresos totales
@@ -137,12 +143,7 @@ def mostrar_ingresos():
     panel_ingresos_totales.pack(side=BOTTOM)    # Panel ingresos totales
 
 
-    #Panel derecha
-    panel_derecho = Frame(area_principal,
-                          bd=1,
-                          relief=FLAT,
-                          bg=f"#{cafe_claro}")
-    panel_derecho.pack(side=RIGHT)
+
 
 
     # Panel columna 1
@@ -304,9 +305,6 @@ def mostrar_ingresos():
     texto_ingresos_totales.grid(row=0,
                                 column=1,
                                 padx=5)
-
-
-
 
 
 # Sección gastos
