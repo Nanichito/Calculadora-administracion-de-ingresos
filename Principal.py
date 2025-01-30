@@ -26,12 +26,21 @@ negro = "000000"
 aplicacion.config(bg=f"#{cafe_claro}")
 
 # Menú lateral
-menu_lateral = Frame(aplicacion, bg=f"#{cafe_oscuro}", width=200, height=alto)
-menu_lateral.pack(side="left", fill="y")
+menu_lateral = Frame(aplicacion,
+                     bg=f"#{cafe_oscuro}",
+                     width=200,
+                     height=alto)
+menu_lateral.pack(side="left",
+                  fill="y")
 
 # Área principal
-area_principal = Frame(aplicacion, bg=f"#{cafe_claro}", width=ancho - 200, height=alto)
-area_principal.pack(side="right", fill="both", expand=True)
+area_principal = Frame(aplicacion,
+                       bg=f"#{cafe_claro}",
+                       width=ancho - 200,
+                       height=alto)
+area_principal.pack(side="right",
+                    fill="both",
+                    expand=True)
 
 # Lista opciones ingresos
 lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3"]
@@ -41,22 +50,35 @@ lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3"]
 #Paneles comunes para todas las secciones
 def paneles_comunes(titulo, descripcion):
     # Panel superior
-    panel_superior = Frame(area_principal, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_superior = Frame(area_principal,
+                           relief=FLAT,
+                           bg=f"#{cafe_claro}")
     panel_superior.pack(side=TOP)
 
     #Título
-    etiqueta_titulo = Label(panel_superior, text=titulo, fg=f"#{cafe_oscuro}",
-                            font=("Dosis", 16), bg=f"#{cafe_claro}", width=0)
+    etiqueta_titulo = Label(panel_superior,
+                            text=titulo,
+                            fg=f"#{cafe_oscuro}",
+                            font=("Dosis", 16),
+                            bg=f"#{cafe_claro}",
+                            width=0)
     etiqueta_titulo.pack(pady=40)
 
     # Panel descripción
-    panel_descripcion = Frame(area_principal, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_descripcion = Frame(area_principal,
+                              relief=FLAT,
+                              bg=f"#{cafe_claro}")
     panel_descripcion.pack(side=TOP)
 
     # Descripción
-    etiqueta_descripcion = Label(panel_descripcion, text=descripcion, fg=f"#{cafe_medio}",
-                                 font=("Dosis", 12), bg=f"#{cafe_claro}", width=0,
-                                 wraplength=ancho - 120, justify="left")
+    etiqueta_descripcion = Label(panel_descripcion,
+                                 text=descripcion,
+                                 fg=f"#{cafe_medio}",
+                                 font=("Dosis", 12),
+                                 bg=f"#{cafe_claro}",
+                                 width=0,
+                                 wraplength=ancho - 120,
+                                 justify="left")
     etiqueta_descripcion.pack(pady=0)
 
 
@@ -102,42 +124,92 @@ def mostrar_ingresos():
 
 
     #Panel izquierdo
-    panel_izquierdo = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{blanco}")
+    panel_izquierdo = Frame(area_principal,
+                            bd=1,
+                            relief=FLAT,
+                            bg=f"#{blanco}")
     panel_izquierdo.pack(side=LEFT)
 
     #Panel derecha
-    panel_derecho = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_derecho = Frame(area_principal,
+                          bd=1,
+                          relief=FLAT,
+                          bg=f"#{cafe_claro}")
     panel_derecho.pack(side=RIGHT)
 
 
     # Panel columna 1
-    panel_columna1 = LabelFrame(panel_izquierdo, text="Columna 1", font=("Dosis", 19, "bold"),bd=1, relief=FLAT,
-                                fg=f"#{cafe_oscuro}", bg= f"#{blanco}")
+    panel_columna1 = LabelFrame(panel_izquierdo,
+                                text="Columna 1",
+                                font=("Dosis", 19, "bold"),
+                                bd=1,
+                                relief=FLAT,
+                                fg=f"#{cafe_oscuro}",
+                                bg= f"#{blanco}")
     panel_columna1.pack(side=LEFT)
 
     # Panel columna 2
-    panel_columna2 = LabelFrame(panel_izquierdo, text="Columna 2", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
-                                fg=f"#{cafe_oscuro}", bg= f"#{blanco}")
+    panel_columna2 = LabelFrame(panel_izquierdo,
+                                text="Columna 2",
+                                font=("Dosis", 19, "bold"),
+                                bd=1,
+                                relief=FLAT,
+                                fg=f"#{cafe_oscuro}",
+                                bg= f"#{blanco}")
     panel_columna2.pack(side=LEFT)
 
     # Panel columna 3
-    panel_columna3 = LabelFrame(panel_izquierdo, text="Columna 3", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
-                                fg=f"#{cafe_oscuro}", bg= f"#{blanco}")
+    panel_columna3 = LabelFrame(panel_izquierdo,
+                                text="Columna 3",
+                                font=("Dosis", 19, "bold"),
+                                bd=1,
+                                relief=FLAT,
+                                fg=f"#{cafe_oscuro}",
+                                bg= f"#{blanco}")
     panel_columna3.pack(side=LEFT)
 
     # Generar items ingresos
     variables_ingresos = []
+    cuadros_ingresos = []
+    texto_ingresos = []
+
 
     # CheckButtons
     contador = 0
     for tipo_ingreso in lista_ingresos:
         variables_ingresos.append("")
         variables_ingresos[contador] = IntVar
-        tipo_ingreso = Checkbutton(panel_columna1, text=tipo_ingreso.title(), font=("Dosis", 19, "italic"),
-                                   fg=f"#{cafe_medio}", onvalue=1, offvalue=0, bg=f"#{blanco}",
-                                   activebackground=f"#{cafe_claro}", variable=variables_ingresos[contador])
+        tipo_ingreso = Checkbutton(panel_columna1,
+                                   text=tipo_ingreso.title(),
+                                   font=("Dosis", 19, "italic"),
+                                   fg=f"#{cafe_medio}",
+                                   onvalue=1,
+                                   offvalue=0,
+                                   bg=f"#{blanco}",
+                                   activebackground=f"#{cafe_claro}",
+                                   variable=variables_ingresos[contador])
 
-        tipo_ingreso.grid(row=contador, column=0, sticky=W)
+        tipo_ingreso.grid(row=contador,
+                          column=0,
+                          sticky=W)
+
+        # Crear los cuadros de entrada
+        cuadros_ingresos.append("")
+        texto_ingresos.append("")
+        texto_ingresos[contador] = StringVar()
+        texto_ingresos[contador].set("0")
+        cuadros_ingresos[contador] = Entry(panel_columna1,
+                                           font=("Dosis", 18),
+                                           bd=1,
+                                           width=6,
+                                           state=DISABLED,
+                                           textvariable=texto_ingresos[contador])
+        cuadros_ingresos[contador].grid(row=contador,
+                                        column=1)
+
+
+
+
         contador += 1
 
 
@@ -164,21 +236,48 @@ def mostrar_resultados():
 
 
 # Botones del menú lateral
-boton_inicio = Button(menu_lateral, text="Inicio", bg=f"#{cafe_claro}", fg="black", font=("Arial", 12),
-                          relief="raised", command=mostrar_inicio)
-boton_inicio.pack(pady=10, padx=10, fill="x")
+boton_inicio = Button(menu_lateral,
+                      text="Inicio",
+                      bg=f"#{cafe_claro}",
+                      fg="black",
+                      font=("Arial", 12),
+                      relief="raised", command=mostrar_inicio)
+boton_inicio.pack(pady=10,
+                  padx=10,
+                  fill="x")
 
-boton_ingresos = Button(menu_lateral, text="Ingresos", bg=f"#{cafe_claro}", fg="black", font=("Arial", 12),
-                        relief="raised", command=mostrar_ingresos)
-boton_ingresos.pack(pady=10, padx=10, fill="x")
+boton_ingresos = Button(menu_lateral,
+                        text="Ingresos",
+                        bg=f"#{cafe_claro}",
+                        fg="black",
+                        font=("Arial", 12),
+                        relief="raised",
+                        command=mostrar_ingresos)
+boton_ingresos.pack(pady=10,
+                    padx=10,
+                    fill="x")
 
-boton_gastos = Button(menu_lateral, text="Gastos", bg=f"#{cafe_claro}", fg="black", font=("Arial", 12), relief="raised",
+boton_gastos = Button(menu_lateral,
+                      text="Gastos",
+                      bg=f"#{cafe_claro}",
+                      fg="black",
+                      font=("Arial", 12),
+                      relief="raised",
                       command=mostrar_gastos)
-boton_gastos.pack(pady=10, padx=10, fill="x")
+boton_gastos.pack(pady=10,
+                  padx=10,
+                  fill="x")
 
-boton_resultados = Button(menu_lateral, text="Resultados", bg=f"#{cafe_claro}", fg="black", font=("Arial", 12),
-                          relief="raised", command=mostrar_resultados)
-boton_resultados.pack(pady=10, padx=10, fill="x")
+boton_resultados = Button(menu_lateral,
+                          text="Resultados",
+                          bg=f"#{cafe_claro}",
+                          fg="black",
+                          font=("Arial", 12),
+                          relief="raised",
+                          command=mostrar_resultados)
+boton_resultados.pack(pady=10,
+                      padx=10,
+                      fill="x")
 
 
 
