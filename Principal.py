@@ -43,7 +43,7 @@ area_principal.pack(side="right",
                     expand=True)
 
 # Lista opciones ingresos
-lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3", "Otro 4", "Otro 5"]
+lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3", "Otro 4", "Otro 5", "Otro 6", "Otro 7"]
 
 
 
@@ -130,6 +130,16 @@ def mostrar_ingresos():
                             bg=f"#{blanco}")
     panel_izquierdo.pack(side=LEFT)
 
+
+    # Panel ingresos totales
+    panel_ingresos_totales = Frame(panel_izquierdo,
+                                   bd=1,
+                                   relief=FLAT,
+                                   bg=f"#{cafe_oscuro}",
+                                   padx=120)
+    panel_ingresos_totales.pack(side=BOTTOM)
+
+
     #Panel derecha
     panel_derecho = Frame(area_principal,
                           bd=1,
@@ -146,7 +156,8 @@ def mostrar_ingresos():
                                 relief=FLAT,
                                 fg=f"#{cafe_oscuro}",
                                 bg= f"#{blanco}")
-    panel_columna1.pack(side=LEFT)
+    panel_columna1.pack(side=LEFT,
+                        padx=(20, 0))
 
     # Panel columna 2
     panel_columna2 = LabelFrame(panel_izquierdo,
@@ -156,7 +167,8 @@ def mostrar_ingresos():
                                 relief=FLAT,
                                 fg=f"#{cafe_oscuro}",
                                 bg= f"#{blanco}")
-    panel_columna2.pack(side=LEFT)
+    panel_columna2.pack(side=LEFT,
+                        padx=(30, 0))
 
     # Panel columna 3
     panel_columna3 = LabelFrame(panel_izquierdo,
@@ -167,6 +179,10 @@ def mostrar_ingresos():
                                 fg=f"#{cafe_oscuro}",
                                 bg= f"#{blanco}")
     panel_columna3.pack(side=LEFT)
+
+
+
+
 
     # Generar items ingresos columna 1
     variables_ingresos1 = []
@@ -193,7 +209,7 @@ def mostrar_ingresos():
                           column=0,
                           sticky=W)
 
-        # Crear los cuadros de entrada
+        # Crear los cuadros de entrada columna 1
         cuadros_ingresos1.append("")
         texto_ingresos1.append("")
         texto_ingresos1[contador] = StringVar()
@@ -205,7 +221,8 @@ def mostrar_ingresos():
                                            state=DISABLED,
                                            textvariable=texto_ingresos1[contador])
         cuadros_ingresos1[contador].grid(row=contador,
-                                        column=1)
+                                        column=1,
+                                         padx=(8, 0))
         contador += 1
 
 
@@ -215,7 +232,7 @@ def mostrar_ingresos():
     cuadros_ingresos2 = []
     texto_ingresos2 = []
 
-    # CheckButtons columna 1
+    # CheckButtons columna 2
     contador = 0
     for tipo_ingreso in lista_ingresos:
         variables_ingresos2.append("")
@@ -234,7 +251,7 @@ def mostrar_ingresos():
                           column=0,
                           sticky=W)
 
-        # Crear los cuadros de entrada
+        # Crear los cuadros de entrada columna 2
         cuadros_ingresos2.append("")
         texto_ingresos2.append("")
         texto_ingresos2[contador] = StringVar()
@@ -246,8 +263,34 @@ def mostrar_ingresos():
                                             state=DISABLED,
                                             textvariable=texto_ingresos2[contador])
         cuadros_ingresos2[contador].grid(row=contador,
-                                         column=1)
+                                         column=1,
+                                         padx=(8, 0))
         contador += 1
+
+
+    # Variables ingresos totales
+    var_ingresos_totales = StringVar()
+    # Etiquetas de ingresos totales y campos de entrada
+    etiqueta_ingresos_totales = Label(panel_ingresos_totales,
+                                      text=("Ingresos mensuales totales"),
+                                      font=("Dosis", 12),
+                                      bg=f"#{cafe_oscuro}",
+                                      fg=f"#{blanco}")
+    etiqueta_ingresos_totales.grid(row=0,
+                                   column=0)
+
+    texto_ingresos_totales = Entry(panel_ingresos_totales,
+                                   font=("Dosis", 12),
+                                   bd=1,
+                                   width=10,
+                                   state="readonly",
+                                   textvariable=var_ingresos_totales)
+    texto_ingresos_totales.grid(row=0,
+                                column=1,
+                                padx=5)
+
+
+
 
 
 # Sección gastos
