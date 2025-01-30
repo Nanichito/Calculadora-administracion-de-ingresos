@@ -55,13 +55,7 @@ def paneles_comunes(titulo, descripcion):
                                  wraplength=ancho - 120, justify="left")
     etiqueta_descripcion.pack(pady=0)
 
-    #Panel izquierdo
-    panel_izquierdo = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
-    panel_izquierdo.pack(side=LEFT)
 
-    #Panel derecho
-    panel_derecho = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
-    panel_derecho.pack(side=RIGHT)derecho
 
 
     # Retorna los paneles comunes
@@ -85,6 +79,37 @@ def mostrar_inicio():
     descripcion_inicio = ('Sigue las instrucciones de "Ingresos" y "Gastos" para obtener '
                           'una recomendación financiera en "Resultados')
     paneles_comunes(titulo_inicio, descripcion_inicio)
+
+
+    #Panel izquierdo
+    panel_izquierdo = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_izquierdo.pack(side=LEFT)
+
+    #Panel derecha
+    panel_derecho = Frame(area_principal, bd=1, relief=FLAT, bg=f"#{cafe_claro}")
+    panel_derecho.pack(side=RIGHT)
+
+
+    # Panel columna 1
+    panel_columna1 = LabelFrame(panel_izquierdo, text="Columna 1", font=("Dosis", 19, "bold"),bd=1, relief=FLAT,
+                                fg=f"#{cafe_claro}")
+    panel_columna1.pack(side=LEFT)
+
+    # Panel columna 2
+    panel_columna2 = LabelFrame(panel_izquierdo, text="Columna 2", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
+                                fg=f"#{cafe_claro}")
+    panel_columna2.pack(side=LEFT)
+
+    # Panel columna 3
+    panel_columna3 = LabelFrame(panel_izquierdo, text="Columna 3", font=("Dosis", 19, "bold"), bd=1, relief=FLAT,
+                                fg=f"#{cafe_claro}")
+    panel_columna3.pack(side=LEFT)
+
+
+
+
+
+
 
 
 # Sección ingresos
