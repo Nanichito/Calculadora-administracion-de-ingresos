@@ -146,6 +146,7 @@ def mostrar_ingresos():
 
 
 
+
     # Panel columna 1
     panel_columna1 = LabelFrame(panel_izquierdo,
                                 text="Columna 1",
