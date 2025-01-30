@@ -141,7 +141,7 @@ def mostrar_ingresos():
     # Panel columna 1
     panel_columna1 = LabelFrame(panel_izquierdo,
                                 text="Columna 1",
-                                font=("Dosis", 19, "bold"),
+                                font=("Dosis", 15, "bold"),
                                 bd=1,
                                 relief=FLAT,
                                 fg=f"#{cafe_oscuro}",
@@ -151,7 +151,7 @@ def mostrar_ingresos():
     # Panel columna 2
     panel_columna2 = LabelFrame(panel_izquierdo,
                                 text="Columna 2",
-                                font=("Dosis", 19, "bold"),
+                                font=("Dosis", 15, "bold"),
                                 bd=1,
                                 relief=FLAT,
                                 fg=f"#{cafe_oscuro}",
@@ -161,7 +161,7 @@ def mostrar_ingresos():
     # Panel columna 3
     panel_columna3 = LabelFrame(panel_izquierdo,
                                 text="Columna 3",
-                                font=("Dosis", 19, "bold"),
+                                font=("Dosis", 15, "bold"),
                                 bd=1,
                                 relief=FLAT,
                                 fg=f"#{cafe_oscuro}",
@@ -181,7 +181,7 @@ def mostrar_ingresos():
         variables_ingresos1[contador] = IntVar
         tipo_ingreso = Checkbutton(panel_columna1,
                                    text=tipo_ingreso.title(),
-                                   font=("Dosis", 19, "italic"),
+                                   font=("Dosis", 15, "italic"),
                                    fg=f"#{cafe_medio}",
                                    onvalue=1,
                                    offvalue=0,
@@ -199,7 +199,7 @@ def mostrar_ingresos():
         texto_ingresos1[contador] = StringVar()
         texto_ingresos1[contador].set("0")
         cuadros_ingresos1[contador] = Entry(panel_columna1,
-                                           font=("Dosis", 18),
+                                           font=("Dosis", 15),
                                            bd=1,
                                            width=6,
                                            state=DISABLED,
@@ -222,7 +222,7 @@ def mostrar_ingresos():
         variables_ingresos2[contador] = IntVar
         tipo_ingreso = Checkbutton(panel_columna2,
                                    text=tipo_ingreso.title(),
-                                   font=("Dosis", 19, "italic"),
+                                   font=("Dosis", 15, "italic"),
                                    fg=f"#{cafe_medio}",
                                    onvalue=1,
                                    offvalue=0,
@@ -240,7 +240,7 @@ def mostrar_ingresos():
         texto_ingresos2[contador] = StringVar()
         texto_ingresos2[contador].set("0")
         cuadros_ingresos2[contador] = Entry(panel_columna2,
-                                            font=("Dosis", 18),
+                                            font=("Dosis", 15),
                                             bd=1,
                                             width=6,
                                             state=DISABLED,
