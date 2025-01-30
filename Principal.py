@@ -43,7 +43,7 @@ area_principal.pack(side="right",
                     expand=True)
 
 # Lista opciones ingresos
-lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3"]
+lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3", "Otro 4", "Otro 5"]
 
 
 
@@ -168,17 +168,17 @@ def mostrar_ingresos():
                                 bg= f"#{blanco}")
     panel_columna3.pack(side=LEFT)
 
-    # Generar items ingresos
-    variables_ingresos = []
-    cuadros_ingresos = []
-    texto_ingresos = []
+    # Generar items ingresos columna 1
+    variables_ingresos1 = []
+    cuadros_ingresos1 = []
+    texto_ingresos1 = []
 
 
-    # CheckButtons
+    # CheckButtons columna 1
     contador = 0
     for tipo_ingreso in lista_ingresos:
-        variables_ingresos.append("")
-        variables_ingresos[contador] = IntVar
+        variables_ingresos1.append("")
+        variables_ingresos1[contador] = IntVar
         tipo_ingreso = Checkbutton(panel_columna1,
                                    text=tipo_ingreso.title(),
                                    font=("Dosis", 19, "italic"),
@@ -187,32 +187,67 @@ def mostrar_ingresos():
                                    offvalue=0,
                                    bg=f"#{blanco}",
                                    activebackground=f"#{cafe_claro}",
-                                   variable=variables_ingresos[contador])
+                                   variable=variables_ingresos1[contador])
 
         tipo_ingreso.grid(row=contador,
                           column=0,
                           sticky=W)
 
         # Crear los cuadros de entrada
-        cuadros_ingresos.append("")
-        texto_ingresos.append("")
-        texto_ingresos[contador] = StringVar()
-        texto_ingresos[contador].set("0")
-        cuadros_ingresos[contador] = Entry(panel_columna1,
+        cuadros_ingresos1.append("")
+        texto_ingresos1.append("")
+        texto_ingresos1[contador] = StringVar()
+        texto_ingresos1[contador].set("0")
+        cuadros_ingresos1[contador] = Entry(panel_columna1,
                                            font=("Dosis", 18),
                                            bd=1,
                                            width=6,
                                            state=DISABLED,
-                                           textvariable=texto_ingresos[contador])
-        cuadros_ingresos[contador].grid(row=contador,
+                                           textvariable=texto_ingresos1[contador])
+        cuadros_ingresos1[contador].grid(row=contador,
                                         column=1)
-
-
-
-
         contador += 1
 
 
+
+    # Generar items ingresos columna 2
+    variables_ingresos2 = []
+    cuadros_ingresos2 = []
+    texto_ingresos2 = []
+
+    # CheckButtons columna 1
+    contador = 0
+    for tipo_ingreso in lista_ingresos:
+        variables_ingresos2.append("")
+        variables_ingresos2[contador] = IntVar
+        tipo_ingreso = Checkbutton(panel_columna2,
+                                   text=tipo_ingreso.title(),
+                                   font=("Dosis", 19, "italic"),
+                                   fg=f"#{cafe_medio}",
+                                   onvalue=1,
+                                   offvalue=0,
+                                   bg=f"#{blanco}",
+                                   activebackground=f"#{cafe_claro}",
+                                   variable=variables_ingresos2[contador])
+
+        tipo_ingreso.grid(row=contador,
+                          column=0,
+                          sticky=W)
+
+        # Crear los cuadros de entrada
+        cuadros_ingresos2.append("")
+        texto_ingresos2.append("")
+        texto_ingresos2[contador] = StringVar()
+        texto_ingresos2[contador].set("0")
+        cuadros_ingresos2[contador] = Entry(panel_columna2,
+                                            font=("Dosis", 18),
+                                            bd=1,
+                                            width=6,
+                                            state=DISABLED,
+                                            textvariable=texto_ingresos2[contador])
+        cuadros_ingresos2[contador].grid(row=contador,
+                                         column=1)
+        contador += 1
 
 
 # Sección gastos
