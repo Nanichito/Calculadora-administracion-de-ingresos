@@ -393,4 +393,3 @@ mostrar_inicio()
 
 # Lanza la aplicación
 aplicacion.mainloop()
-
