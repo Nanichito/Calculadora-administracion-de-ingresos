@@ -43,8 +43,9 @@ area_principal.pack(side="right",
                     expand=True)
 
 # Lista opciones ingresos
-lista_ingresos = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3", "Otro 4", "Otro 5", "Otro 6", "Otro 7"]
-
+lista_ingresos1 = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3", "Otro 4", "Otro 5", "Otro 6", "Otro 7"]
+lista_ingresos2 = ["Otro 8", "Otro 9", "Otro 10", "Otro 11", "Otro 12", "Otro 13", "Otro 14", "Otro 15"]
+S
 
 
 #Paneles comunes para todas las secciones
@@ -82,12 +83,8 @@ def paneles_comunes(titulo, descripcion):
     etiqueta_descripcion.pack(pady=0)
 
 
-
-
     # Retorna los paneles comunes
     return panel_superior, panel_descripcion
-
-
 
 
 
@@ -95,6 +92,12 @@ def paneles_comunes(titulo, descripcion):
 def limpiar_area_principal():
     for widget in area_principal.winfo_children():
         widget.destroy()
+
+
+# Resetea los campos
+def resetear():
+
+        return
 
 
 # Funciones para cada sección
@@ -107,10 +110,6 @@ def mostrar_inicio():
     paneles_comunes(titulo_inicio, descripcion_inicio)
 
 
-
-
-
-
 # Sección ingresos
 def mostrar_ingresos():
     limpiar_area_principal()
@@ -119,8 +118,6 @@ def mostrar_ingresos():
                             'valores correspondientes. Puede añadir otros campos con el botón "Agregar", asegúrese '
                             'de clickear la casilla, escribir un nombre y el valor.')
     paneles_comunes(titulo_ingresos, descripcion_ingresos)
-
-
 
 
     #Panel izquierdo
@@ -137,7 +134,7 @@ def mostrar_ingresos():
                                    relief=FLAT,
                                    bg=f"#{cafe_oscuro}",
                                    padx=120)
-    panel_ingresos_totales.pack(side=BOTTOM)
+    panel_ingresos_totales.pack(side=BOTTOM)    # Panel ingresos totales
 
 
     #Panel derecha
@@ -181,6 +178,25 @@ def mostrar_ingresos():
     panel_columna3.pack(side=LEFT)
 
 
+    # Panel resetear
+    panel_resetear = LabelFrame(panel_derecho,
+                                   bd=1,
+                                   relief=FLAT,
+                                   bg=f"#{cafe_oscuro}",
+                                   padx=120)
+    panel_resetear.pack(side=BOTTOM)
+
+    #Botón resetear
+    boton_resetear = Button(panel_resetear,
+                            text="Resetear",
+                            bg=f"#{cafe_claro}",
+                            fg="black",
+                            font=("Arial", 12),
+                            relief="raised",
+                            command=resetear)
+    boton_resetear.pack(pady=10,
+                        padx=10,
+                        fill="x")
 
 
 
@@ -192,7 +208,7 @@ def mostrar_ingresos():
 
     # CheckButtons columna 1
     contador = 0
-    for tipo_ingreso in lista_ingresos:
+    for tipo_ingreso in lista_ingresos1:
         variables_ingresos1.append("")
         variables_ingresos1[contador] = IntVar
         tipo_ingreso = Checkbutton(panel_columna1,
@@ -234,7 +250,7 @@ def mostrar_ingresos():
 
     # CheckButtons columna 2
     contador = 0
-    for tipo_ingreso in lista_ingresos:
+    for tipo_ingreso in lista_ingresos2:
         variables_ingresos2.append("")
         variables_ingresos2[contador] = IntVar
         tipo_ingreso = Checkbutton(panel_columna2,
@@ -356,6 +372,11 @@ boton_resultados = Button(menu_lateral,
 boton_resultados.pack(pady=10,
                       padx=10,
                       fill="x")
+
+
+
+
+
 
 
 
