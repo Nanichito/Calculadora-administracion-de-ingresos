@@ -142,6 +142,7 @@ def mostrar_ingresos():
 
 
 
+
 # Sección gastos
 def mostrar_gastos():
     limpiar_area_principal()
