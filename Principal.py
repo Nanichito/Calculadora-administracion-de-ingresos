@@ -5,7 +5,7 @@ aplicacion = Tk()
 
 # Tamaño de la ventana
 ancho = 1020
-alto = 630
+alto = 700
 aplicacion.geometry(f"{ancho}x{alto}+0+0")
 
 # Evitar maximizar ventana
@@ -45,7 +45,7 @@ area_principal.pack(side="right",
 # Lista opciones ingresos
 lista_ingresos1 = ["Sueldo líquido", "Otro 1", "Otro 2", "Otro 3", "Otro 4", "Otro 5", "Otro 6", "Otro 7"]
 lista_ingresos2 = ["Otro 8", "Otro 9", "Otro 10", "Otro 11", "Otro 12", "Otro 13", "Otro 14", "Otro 15"]
-S
+
 
 
 #Paneles comunes para todas las secciones
@@ -86,15 +86,20 @@ def paneles_comunes(titulo, descripcion):
     panel_izquierdo = Frame(area_principal,
                             bd=1,
                             relief=FLAT,
-                            bg=f"#{blanco}")
-    panel_izquierdo.pack(side=LEFT)
+                            bg=f"#{cafe_claro}")
+    panel_izquierdo.pack(side=LEFT,
+                         padx=(20, 0), #más hacia la derecha
+                         pady=(0, 57)
+                         )
 
     # Panel derecha
     panel_derecho = Frame(area_principal,
                           bd=1,
                           relief=FLAT,
                           bg=f"#{cafe_claro}")
-    panel_derecho.pack(side=RIGHT)
+    panel_derecho.pack(side=RIGHT,
+                       padx=(0,0),
+                       pady=(0,0))
 
 
     # Retorna los paneles comunes
@@ -138,38 +143,35 @@ def mostrar_ingresos():
     panel_ingresos_totales = Frame(panel_izquierdo,
                                    bd=1,
                                    relief=FLAT,
-                                   bg=f"#{cafe_oscuro}",
-                                   padx=120)
+                                   bg=f"#{cafe_claro}",
+                                   padx=77)
     panel_ingresos_totales.pack(side=BOTTOM)    # Panel ingresos totales
-
-
-
-
 
     # Panel columna 1
     panel_columna1 = LabelFrame(panel_izquierdo,
                                 text="Columna 1",
                                 font=("Dosis", 15, "bold"),
-                                bd=1,
+                                bd=0,
                                 relief=FLAT,
                                 fg=f"#{cafe_oscuro}",
-                                bg= f"#{blanco}")
+                                bg= f"#{cafe_claro}")
     panel_columna1.pack(side=LEFT,
-                        padx=(20, 0))
+                        padx=(0, 0))
 
     # Panel columna 2
     panel_columna2 = LabelFrame(panel_izquierdo,
                                 text="Columna 2",
                                 font=("Dosis", 15, "bold"),
-                                bd=1,
+                                bd=0,
                                 relief=FLAT,
                                 fg=f"#{cafe_oscuro}",
-                                bg= f"#{blanco}")
+                                bg= f"#{cafe_claro}")
     panel_columna2.pack(side=LEFT,
                         padx=(30, 0))
 
+    '''
     # Panel columna 3
-    panel_columna3 = LabelFrame(panel_izquierdo,
+panel_columna3 = LabelFrame(panel_izquierdo,
                                 text="Columna 3",
                                 font=("Dosis", 15, "bold"),
                                 bd=1,
@@ -177,27 +179,48 @@ def mostrar_ingresos():
                                 fg=f"#{cafe_oscuro}",
                                 bg= f"#{blanco}")
     panel_columna3.pack(side=LEFT)
+    '''
+
+    # panel pizarra
+    panel_pizarra = Frame(panel_derecho,
+                          bd=0,
+                          relief=FLAT,
+                          bg=f'#{cafe_claro}')
+    panel_pizarra.pack(padx=(0,20),# mueve pizarra más a la izquierda
+                       pady=(0,16)) #mueve la pizarra más arriba
 
 
-    # Panel resetear
-    panel_resetear = LabelFrame(panel_derecho,
-                                   bd=1,
-                                   relief=FLAT,
-                                   bg=f"#{cafe_oscuro}",
-                                   padx=120)
-    panel_resetear.pack(side=BOTTOM)
+    # area de pizarra
+    texto_pizarra = Text(panel_pizarra,
+                        font=('Dosis', 12),
+                        bd=0,
+                        width=40,
+                        height=19)
+    texto_pizarra.grid(row=0,
+                      column=0)
 
-    #Botón resetear
-    boton_resetear = Button(panel_resetear,
-                            text="Resetear",
-                            bg=f"#{cafe_claro}",
-                            fg="black",
-                            font=("Arial", 12),
-                            relief="raised",
-                            command=resetear)
-    boton_resetear.pack(pady=10,
-                        padx=10,
-                        fill="x")
+    # Panel reset
+    panel_reset = Frame(panel_derecho,
+                        relief=FLAT,
+                        bg=f'#{cafe_claro}')
+    panel_reset.pack(side=BOTTOM,
+                     pady=(2,0),
+                     padx=(170,0))
+
+
+    # Botón reset
+    reset = Button(panel_reset,
+                   text="Resetear",
+                   font=("Dosis", 14),
+                   fg=f"#{cafe_oscuro}",
+                   bg=f"#{blanco}",
+                   bd=1,
+                   width=9,
+                   relief=RAISED)
+
+    reset.grid(row=0,
+               column=0)
+
 
 
 
@@ -218,7 +241,7 @@ def mostrar_ingresos():
                                    fg=f"#{cafe_medio}",
                                    onvalue=1,
                                    offvalue=0,
-                                   bg=f"#{blanco}",
+                                   bg=f"#{cafe_claro}",
                                    activebackground=f"#{cafe_claro}",
                                    variable=variables_ingresos1[contador])
 
@@ -260,7 +283,7 @@ def mostrar_ingresos():
                                    fg=f"#{cafe_medio}",
                                    onvalue=1,
                                    offvalue=0,
-                                   bg=f"#{blanco}",
+                                   bg=f"#{cafe_claro}",
                                    activebackground=f"#{cafe_claro}",
                                    variable=variables_ingresos2[contador])
 
@@ -287,14 +310,15 @@ def mostrar_ingresos():
 
     # Variables ingresos totales
     var_ingresos_totales = StringVar()
-    # Etiquetas de ingresos totales y campos de entrada
+    # Etiquetas de ingresos totales y campo de salida
     etiqueta_ingresos_totales = Label(panel_ingresos_totales,
                                       text=("Ingresos mensuales totales"),
-                                      font=("Dosis", 12),
-                                      bg=f"#{cafe_oscuro}",
-                                      fg=f"#{blanco}")
+                                      font=("Dosis", 12, "italic"),
+                                      bg=f"#{cafe_claro}",
+                                      fg=f"#{cafe_oscuro}")
     etiqueta_ingresos_totales.grid(row=0,
-                                   column=0)
+                                   column=0,
+                                   pady=(12,0))
 
     texto_ingresos_totales = Entry(panel_ingresos_totales,
                                    font=("Dosis", 12),
@@ -304,7 +328,8 @@ def mostrar_ingresos():
                                    textvariable=var_ingresos_totales)
     texto_ingresos_totales.grid(row=0,
                                 column=1,
-                                padx=5)
+                                padx=(5,0),
+                                pady=(12,0))
 
 
 # Sección gastos
