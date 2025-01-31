@@ -331,7 +331,6 @@ panel_columna3 = LabelFrame(panel_izquierdo,
                                 padx=(5,0),
                                 pady=(12,0))
 
-
 # Sección gastos
 def mostrar_gastos():
     limpiar_area_principal()
